@@ -1,0 +1,11 @@
+Установка среды редактора кода VS Code в операционной системе Xubuntu 20.04
+
+1. Скачать с https://code.visualstudio.com/ пакет для установки
+2. Установить vscode
+3. Вывести ярлык на панель
+4. Установить плагины:
+  - gitlens
+  - go
+  - go doc
+  - goplus
+  - Kite AutoComplete
