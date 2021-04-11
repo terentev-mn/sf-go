@@ -1,17 +1,6 @@
 package calc
 
-//Создайте пакет calc, содержащий неэкспортируемую структуру calculator.
-// Напишите экспортируемую функцию-конструктор для создания экземпляра структуры calculator.
-
-//Добавьте экспортируемый (публичный) метод Calculate для структуры calculator.
-//В качестве параметров метод должен принимать 2 числа типа float64 и строчный оператор (+, -, *, /).
-//Возвращать метод должен значение типа float64.
-
-//Добавьте неэкспортируемые (приватные) методы для каждой операции (сложения, вычитания, умножения, деления).
-// Каждый приватный метод должен принимать на вход 2 числа типа float64 и возвращать значение типа float64.
-// (В методе деления чисел должны быть проверка делителя на равенство 0).
-//Метод Calculate должен в зависимости от переданного оператора вызывать один из приватных методов.
-// (Если в качестве оператора передан +, то должен быть вызван приватный метод для сложения чисел).
+import "fmt"
 
 type calculator struct {
 	a, b float64
@@ -22,7 +11,7 @@ func NewCalculator(a, b float64, act string) calculator {
 	return calculator{a, b, act}
 }
 
-func (c calculator) Calculate() float64 {
+func (c calculator) Calculate() {
 	var ret float64
 	switch c.act {
 	case "+":
@@ -34,7 +23,7 @@ func (c calculator) Calculate() float64 {
 	case "/":
 		ret = c.calc_div()
 	}
-	return ret
+	fmt.Printf("%v %v %v = %.2f\n", c.a, c.act, c.b, ret)
 }
 
 func (c *calculator) calc_sum() float64 {
