@@ -7,6 +7,7 @@ import "fmt"
 
 func main() {
 	arr := []int64{-1, -12, -5, 4, 5, -12, 3, 99}
+	//arr := []int64{}
 	//var res int64
 	//res, _ = findMaxNegative(arr)
 	//res, _ = findMostOftenRepeated(arr)
@@ -14,7 +15,7 @@ func main() {
 	//res, _ = findMostOftenRepeatedWithMap(arr)
 	var res []int64
 	//res = trimNegative(arr)
-	res = meanA(arr)
+	res = trimLessAverage(arr)
 	fmt.Println(res)
 }
 
@@ -110,10 +111,13 @@ func trimNegative(array []int64) []int64 {
 //Найти среднее арифметическое всех чисел массива.
 //Как в прошлой задаче, добавить в новый массив только те числа,
 // которые меньше найденного в первом пункте.
-func meanA(array []int64) []int64 {
+func trimLessAverage(array []int64) []int64 {
 	var ret []int64
 	var sum int64 = 0
 	var mean int64 = 0
+	if len(array) == 0 {
+		return ret
+	}
 	for _, i := range array {
 		sum += i
 	}
